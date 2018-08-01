@@ -1,6 +1,6 @@
 # The Hack Computer
 
-> A Modern Computer on First Principles: From Nand to Tetris.  - Shimon Schocken
+> A Modern Computer on First Principles: From Nand to Tetris.
 
 ## Nand to Tetris Abstration Layers
 
