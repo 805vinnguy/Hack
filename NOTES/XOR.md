@@ -16,10 +16,16 @@ CHIP Xor {
 }
 ```
 
-# Interface
-> IN a, b;
-> OUT out;
+### Interface
 
-# Implementation
-> Parts:
-> ...
+```
+IN a, b;
+OUT out;
+```
+
+### Implementation
+
+```
+Parts:
+...
+```
