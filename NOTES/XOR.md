@@ -1,5 +1,7 @@
 # Xor Gate
 
+### Xor.hdl
+
 ```
 /** Xor Gate: out = (a And Not(b)) Or (Not(a) And b))   */
 
