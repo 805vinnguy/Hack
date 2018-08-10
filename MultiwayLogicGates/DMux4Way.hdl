@@ -20,7 +20,7 @@ CHIP DMux4Way {
     DMux (in = in, sel = sel[0], a = selzerozero, b = selzeroone);
     DMux (in = in, sel = sel[0], a = selonezero, b = seloneone);
     DMux (in = in, sel = sel[1], a = zero, b = one);
-    And (a = selzerozero, b = zero, out = a);
+    And (a = selzerozero, b = zero, out = a);   //can possibly do this part with 2 DMux
     And (a = selzeroone, b = zero, out = b);
     And (a = selonezero, b = one, out = c);
     And (a = seloneone, b = one, out = d);
