@@ -25,3 +25,4 @@
 |         0         |          0         |        0          |          0         | 0 | 0 | x&y |
 |         0         |          1         |        0          |          1         | 0 | 1 | x or y |
 
+> "Simplicity is the ulitmate sophistication." - Leonardo da Vinci
