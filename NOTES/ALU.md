@@ -26,3 +26,8 @@
 |         0         |          1         |        0          |          1         | 0 | 1 | x or y |
 
 > "Simplicity is the ulitmate sophistication." - Leonardo da Vinci
+
+### Thoughts
+
++ to zero x and y with zx and zy, use And16
++ to not x and y with nx and ny, use Not16
