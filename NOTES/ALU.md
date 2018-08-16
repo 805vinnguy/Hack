@@ -29,5 +29,11 @@
 
 ### Thoughts
 
-+ to zero x and y with zx and zy, use And16
++ to zero x and y with zx and zy, use And16 with !zx
 + to not x and y with nx and ny, use Not16
++ can simulate if statement possibly by using mux to select between options whether something is 0 or 1.
+    + calculate both x + y and x & y and put into intermediate pins and mux between the two based on f select.
+    + same principle with nx, compute both options and use nx as select input.
+    + same principle with no as well.
+    + probably will not need to do anything for out column since if the rules are followed with opcode, will get appropriate answer
++ operations done consecutively so must use output of the previous instead of original input pin.
