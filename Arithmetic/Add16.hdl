@@ -13,7 +13,7 @@ CHIP Add16 {
     OUT out[16];
 
     PARTS:
-   // Put you code here:
+    // Put you code here:
     HalfAdder (a = a[0], b = b[0], sum = out[0], carry = carryzero);
     FullAdder (a = a[1], b = b[1], c = carryzero, sum = out[1], carry = carryone);
     FullAdder (a = a[2], b = b[2], c = carryone, sum = out[2], carry = carrytwo);

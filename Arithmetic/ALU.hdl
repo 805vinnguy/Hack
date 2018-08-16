@@ -54,5 +54,5 @@ CHIP ALU {
     Mux16 (a = xinandyin, b = xinplusyin, sel = f, out = res);
     Not16 (in = res, out = notres);
     Mux16 (a = res, b = notres, sel = no, out = out);
-
+    
 }
