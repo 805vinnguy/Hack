@@ -37,3 +37,5 @@
     + same principle with no as well.
     + probably will not need to do anything for out column since if the rules are followed with opcode, will get appropriate answer
 + operations done consecutively so must use output of the previous instead of original input pin.
++ how to check for negative (ng), has something to do with 2's complement.
++ how to check for zero (zr), Or8Way, Or the digits. if 1 then number was not zero. if 0 then number was zero.
