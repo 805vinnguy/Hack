@@ -15,3 +15,5 @@
 + Hack chipset API provided on site.
 + Multi-bit busses are indexed right to left.
     + If A is a 16-bit bus, then A[0] is the right-most bit(lsb) and A[15] is the left-most bit(msb).
++ for this particular hdl, can have multiple chip outputs.
+    + CHIPNAME (a = a, b = b, out = out, out[15] = ng, ...);

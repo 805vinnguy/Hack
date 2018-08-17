@@ -53,6 +53,10 @@ CHIP ALU {
     Add16 (a = nxin, b = nyin, out = xinplusyin);
     Mux16 (a = xinandyin, b = xinplusyin, sel = f, out = res);
     Not16 (in = res, out = notres);
-    Mux16 (a = res, b = notres, sel = no, out = out);
-    
+
+    Mux16 (a = res, b = notres, sel = no, out = out, out[15] = ng, out[0..7] = lsbyte, out[8..15] = msbyte);
+    Or8Way (in = lsbyte, out = zrlsbyte);
+    Or8Way (in = msbyte, out = zrmsbyte);
+    Or (a = zrlsbyte, b = zrmsbyte, out = zrout);
+    Not (in = zrout, out = zr);
 }
