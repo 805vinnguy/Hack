@@ -11,3 +11,4 @@
 
 + time t
 + out[t] = function(in[t])
+
