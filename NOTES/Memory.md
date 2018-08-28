@@ -12,3 +12,12 @@
 + time t
 + out[t] = function(in[t])
 
+### 1 bit register
+
+1-bit register
+```
+if load(t-1) then out(t) = in(t-1)
+else out(t) = out(t-1)
+```
+
+> mux(in, out, load) --> DFF --> out
