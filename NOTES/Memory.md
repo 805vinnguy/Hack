@@ -22,3 +22,19 @@ else out(t) = out(t-1)
 
 > mux(in, out, load) --> DFF --> out
 
+### Memory Units
+
+RAM
+
++ stores data on which our programs operate
++ stores instructions which are the building blocks of the programs themselves
+
+Register
+
++ to **read** the register, just probe the *out* pin of the register
+    + *out* emits the register's state
+
++ to **write** register value to *v*, set *in* = *v* and *load* = 1
+    + the register's state will become *v* and from the next cycle onward, *out* emits *v*
+
+
