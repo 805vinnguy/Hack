@@ -21,3 +21,4 @@ else out(t) = out(t-1)
 ```
 
 > mux(in, out, load) --> DFF --> out
+
