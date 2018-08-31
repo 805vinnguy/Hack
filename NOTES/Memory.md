@@ -28,6 +28,30 @@ RAM
 
 + stores data on which our programs operate
 + stores instructions which are the building blocks of the programs themselves
++ **RAM abstraction** is a sequence of *n* addressable registers 0 to *n*-1
+    + *At any given point, only one register in RAM may be selected.*
++ *k* = width of address input = log2(n)
++ **optional to change** : *w* = word width (has no impact on RAM logic)
+    + for the Hack computer, it is default 16 bit
++ RAM is a sequential chip with clocked behavior (depends on clock input)
++ to **read register *i***, set *address* = *i*
+    + *out* emits the state of register *i*
++ to **write *v* into register *i***, set *address* = *i*, set *in* = *v*, set *load* = 1
+    + the state of register *i* becomes *v* and from the next cycle onward, *out* emits *v*
++ why RAM?
+    + Because irrespective of the RAM size, every register can be accessed at the same time -- instantaneously!
+
+|chip  |n    |k  |
+|:-:   |:-:  |:-:|
+|RAM8  |8    |3  |
+|RAM64 |64   |6  |
+|RAM512|512  |9  |
+|RAM4K |4096 |12 |
+|RAM16K|16384|14 |
+
+
+
+> RAM (in, address, load) --> out
 
 Register
 
