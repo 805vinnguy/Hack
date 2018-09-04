@@ -33,5 +33,6 @@ CHIP RAM8 {
     Register (in = in, load = ld5, out = regout5);
     Register (in = in, load = ld6, out = regout6);
     Register (in = in, load = ld7, out = regout7);
-    Mux8Way16 (a = regout0, b = regout1, c = regout2, d = regout3, e = regout4, f = regout5, g = regout6, h = regout7, sel = address, out = out);
+    Mux8Way16 (a = regout0, b = regout1, c = regout2, d = regout3, e = regout4, f = regout5, g = regout6, h = regout7, sel = address, out = regout);
+    Mux16 (a = regout, b = false, sel = load, out = out);
 }
