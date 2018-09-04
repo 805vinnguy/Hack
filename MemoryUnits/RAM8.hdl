@@ -16,6 +16,22 @@ CHIP RAM8 {
 
     PARTS:
     // Put your code here:
-    // load = load & address bits, all take in, out of each is muxed with address as select
-    
+    DMux8Way (in = true, sel = address, a = reg0, b = reg1, c = reg2, d = reg3, e = reg4, f = reg5, g = reg6, h = reg7);
+    And (a = load, b = reg0, out = ld0);
+    And (a = load, b = reg1, out = ld1);
+    And (a = load, b = reg2, out = ld2);
+    And (a = load, b = reg3, out = ld3);
+    And (a = load, b = reg4, out = ld4);
+    And (a = load, b = reg5, out = ld5);
+    And (a = load, b = reg6, out = ld6);
+    And (a = load, b = reg7, out = ld7);
+    Register (in = in, load = ld0, out = regout0);    
+    Register (in = in, load = ld1, out = regout1);
+    Register (in = in, load = ld2, out = regout2);
+    Register (in = in, load = ld3, out = regout3);
+    Register (in = in, load = ld4, out = regout4);
+    Register (in = in, load = ld5, out = regout5);
+    Register (in = in, load = ld6, out = regout6);
+    Register (in = in, load = ld7, out = regout7);
+    Mux8Way16 (a = regout0, b = regout1, c = regout2, d = regout3, e = regout4, f = regout5, g = regout6, h = regout7, sel = address, out = out);
 }
