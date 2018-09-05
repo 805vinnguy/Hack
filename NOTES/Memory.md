@@ -61,4 +61,11 @@ Register
 + to **write** register value to *v*, set *in* = *v* and *load* = 1
     + the register's state will become *v* and from the next cycle onward, *out* emits *v*
 
+### PC
+
++ keep track of which instruction should be fetched and executed next
++ contains the address of this instruction
++ **reset** : fetch the first instruction, PC = 0
++ **next** : fetch the next instruction, PC++
++ **goto** : fetch instruction *n*, PC = *n*
 
