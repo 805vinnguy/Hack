@@ -17,6 +17,10 @@ CHIP PC {
 
     PARTS:
     // Put your code here:
-    // PC is a register
+    // PC is a register, load must be 1 whenever we want a PC state change
     Mux16 (a = true, b = false, sel = reset, out = pcreset);
+    And16 (a = in, b = pcreset, out = pcin);
+    Inc16 (in = pcin, out = pcinc);
+    Mux16 (a = pcin, b = pcinc, sel = inc, out = pcout);
+    Register (in = pcout, load = load, out = out);
 }
