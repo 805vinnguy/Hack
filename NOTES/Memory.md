@@ -69,3 +69,15 @@ Register
 + **next** : fetch the next instruction, PC++
 + **goto** : fetch instruction *n*, PC = *n*
 
+> PC register --> possible register *in*'s --> Mux8Way16 --> register *in* --> load PC register --> out
+
+|reset|load|inc|operation|mux input  |
+|:-:  |:-: |:-:|:-:      |:-:        |
+|0    |0   |0  |nothing  |PC(out)    |
+|0    |0   |1  |inc      |PC+1(out+1)|
+|0    |1   |0  |load     |in         |
+|0    |1   |1  |load     |in         |
+|1    |0   |0  |reset    |0          |
+|1    |0   |1  |reset    |0          |
+|1    |1   |0  |reset    |0          |
+|1    |1   |1  |reset    |0          |
