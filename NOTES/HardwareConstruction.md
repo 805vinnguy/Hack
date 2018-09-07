@@ -17,3 +17,24 @@
     + If A is a 16-bit bus, then A[0] is the right-most bit(lsb) and A[15] is the left-most bit(msb).
 + for this particular hdl, can have multiple chip outputs.
     + CHIPNAME (a = a, b = b, out = out, out[15] = ng, ...);
+
+## NAND Gate
+
+        HIGH VOLT
+            |
+            |
+         resistor
+            |
+            |______________out
+            |
+        ____|
+ A__|   |
+    |   |___
+            |
+        ____|
+ B__|   |
+    |   |___
+            |
+            |
+            V
+           GND
