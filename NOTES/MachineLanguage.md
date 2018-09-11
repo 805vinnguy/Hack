@@ -55,3 +55,67 @@ CPU --> Register --> Cache --> Main Memory --> Disk
 + The protocol that allows the CPU to *talk* to each device is the software **drivers**.
     1. Memory location 12345 holds the direction of the last movement of the mouse
     2. Memory location 6789 is not a real memory location but a way to tell the printer which paper to use
+
+### Hardware
+
++ A 16 bit computer consisting of
+    + Data Memory (RAM): a sequence of 16 bit registers RAM[0], RAM[1], RAM[2], ...
+    + Instruction Memory (ROM): a sequence of 16 bit registers ROM[0], ROM[1], ROM[2], ...
+    + Central Processing Unit (CPU): performs 16 bit instructions
+    + Instructions bus / Data bus / Address bus
+
++ Control:
+    + The ROM is loaded with a Hack program
+    + The *reset* button is pushed
+    + The program starts running
+
++ Computer recognizes 3 registers:
+    + D Register holds a 16 bit value
+    + A Register holds a 16 bit value
+    + M Register represents the 16 bit RAM register addressed by A Register
+
+### The A Instruction (Addressing)
+
+**Syntax** : @*value*
+*value* = non-negative decimal or symbol
+**Semantics** : Sets the A register to *value*
+                RAM[A] becomes the selected RAM register
+**Example** : @*21*
+              Sets the A register to 21
+              RAM[21] becomes the selected RAM register
+
+**Code** : // Set RAM[100] to -1
+           @100   // A=100
+           M=-1   // RAM[100] = -1
+
+### The C Instruction (computation)
+
+**Syntax** : *dest* = *comp* ; *jump* (both *dest* and *jump* are optional)
+
+|*comp*|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |      |
+|:-:   |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:   |
+|0     |1  |-1 |D  |A  |!D |!A |-D |-A |D+1|A+1|D-1|A-1|D+A|D-A|A-D|D&A|D or A|
+|      |   |   |   |M  |   |!M |   |-M |   |M+1|   |M-1|D+M|D-M|M-D|D&M|D or M|
+
+|*dest*|null|M  |D  |MD |A  |AM |AD |AMD|
+|:-:   |:-: |:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+
+|*jump*|null|JGT|JEQ|JGE|JLT|JNE|JLE|JMP|
+|:-:   |:-: |:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+
+**Semantics** : Computes the value of *comp*
+                Stores the result in *dest*
+                If the boolean expression *comp* *jump* 0 is true, jumps to execute the instruction store in ROM[A]
+
+**Example** : // Set D register to -1
+              D=-1
+
+              // Set RAM[300] to the value of the D register minus 1
+              @300 // A=300
+              M=D-1 // RAM[300]=D-1
+
+              // If (D-1==0) jump to execute the instruction store in ROM[56]
+              @56 // A=56
+              D-1;JEQ // if (D-1==0) goto 56
+              
+           
