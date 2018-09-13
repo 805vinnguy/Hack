@@ -141,12 +141,86 @@ CPU --> Register --> Cache --> Main Memory --> Disk
 
 + minimal, but sufficiently rich
 
-|key|code|          |key|code|
-|:-:|:-: |          |:-:|:-: |
-|0  |48  |          |A  |65  |
-|1  |49  |          |B  |66  |
-|...|... |          |...|... |
-|9  |57  |          |Z  |90  |
+|key|code|
+|:-:|:-: |
+|0  |48  |
+|1  |49  |
+|...|... |
+|9  |57  |
+
+|key|code|
+|:-:|:-: |
+|A  |65  |
+|B  |66  |
+|...|... |
+|Z  |90  |
+
+|key    |code|
+|:-:    |:-: |
+|(space)|32  |
+|!      |33  |
+|"      |34  |
+|#      |35  |
+|$      |36  |
+|%      |37  |
+|&      |38  |
+|'      |39  |
+|(      |40  |
+|)      |41  |
+|*      |42  |
+|+      |43  |
+|,      |44  |
+|-      |45  |
+|.      |46  |
+|/      |47  |
+
+|key|code|
+|:-:|:-: |
+|:  |58  |
+|;  |59  |
+|<  |60  |
+|=  |61  |
+|>  |62  |
+|?  |63  |
+|@  |64  |
+
+|key|code|
+|:-:|:-: |
+|[  |91  |
+|/  |92  |
+|]  |93  |
+|^  |94  |
+|_  |95  |
+
+|key         |code|
+|:-:         |:-: |
+|newline     |128 |
+|backspace   |129 |
+|left arrow  |130 |
+|up arrow    |131 |
+|right arrow |132 |
+|down arrow  |133 |
+|home        |134 |
+|end         |135 |
+|Page up     |136 |
+|Page down   |137 |
+|insert      |138 |
+|delete      |139 |
+|esc         |140 |
+|f1          |141 |
+|...         |... |
+|f12         |152 |
+
++ when no key is pressed, the resulting code is 0
++ same idea as ascii
+
++ to **check** which key is currently pressed:
+    1. probe the contents of the keyboard chip
+    2. in the Hack computer, probe the contents of RAM[24576]
++ if the register contains 0, no key is pressed
+
+
            
 1. there is a builtin screen chip
 2. there is a builtin keyboard chip
+    + enable keyboard chip by pressing on the keyboard icon in HW simulator
