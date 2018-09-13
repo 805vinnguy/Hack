@@ -117,9 +117,36 @@ CPU --> Register --> Cache --> Main Memory --> Disk
               // If (D-1==0) jump to execute the instruction store in ROM[56]
               @56 // A=56
               D-1;JEQ // if (D-1==0) goto 56
-            
-              
+
+## Input/Output
+
++ Screen memory map : designated memory area dedicated to manage display unit
+    + the physical display is continuously refreshed from the memory map, many times per second
+    + output is affected by writing code that manipulates the screen memory map
+
++ Display Unit(256 rows, 512 columns, b/w)
++ for every pixel, there is a bit in the screen memory map that represents it
++ b = 1, w = 0
++ to **set** pixel (row, col) on/off:
+    1. i = 32*row + col/16 = address of register in memory map that must be manipulated
+    2. set the (col % 16)*th* bit of *word* to 0 or 1
+    3. commit *word* to RAM
++ *word* = Screen[32*row + col/16]
++ *word* = RAM[16384 + 32*row + col/16] if screen is part of larger ram
+
++ Keyboard memory map : single 16 bit register
+    + when a key is pressed, the key's *scan code* (a 16 bit number) appears in the keyboard memory map
+
+### The Hack Character Set
+
++ minimal, but sufficiently rich
+
+|key|code|          |key|code|
+|:-:|:-: |          |:-:|:-: |
+|0  |48  |          |A  |65  |
+|1  |49  |          |B  |66  |
+|...|... |          |...|... |
+|9  |57  |          |Z  |90  |
            
-a2 + b2 
--------
-ab + 1
+1. there is a builtin screen chip
+2. there is a builtin keyboard chip
