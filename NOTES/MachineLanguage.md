@@ -120,3 +120,6 @@ CPU --> Register --> Cache --> Main Memory --> Disk
             
               
            
+a2 + b2 
+-------
+ab + 1
