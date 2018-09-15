@@ -219,8 +219,52 @@ CPU --> Register --> Cache --> Main Memory --> Disk
     2. in the Hack computer, probe the contents of RAM[24576]
 + if the register contains 0, no key is pressed
 
+**nop slide** : null instructions, bad hacker can write malicious programs downstream of the pc
 
+### Builtin symbols
+
+> symbols denote *virtual registers*
+
+|symbol|value|
+|:-:   |:-:  |
+|R0    |0    |
+|...   |...  |
+|R15   |15   |
+|SCREEN|16384|
+|KBD   |24576|
+|SP    |0    |
+|LCL   |1    |
+|ARG   |2    |
+|THIS  |3    |
+|THAT  |4    |
+
++ last 5 used in virtual machine making that runs on top of cpu
+
+> instead of:
+
+```
+    // RAM[5] = 15
+    @15
+    D=A
+
+    @5
+    M=D
+```
+
+> better style:
+
+```
+    // RAM[5] = 15
+    @15
+    D=A
+
+    @R5
+    M=D
+```
            
 1. there is a builtin screen chip
 2. there is a builtin keyboard chip
     + enable keyboard chip by pressing on the keyboard icon in HW simulator
+3. CPU emulator, translates assembly to machine language
+4. to properly terminate a program, end programs with an infinite loop that loops back to the beginning
+5. Hack is case sensitive, R5 != r5
