@@ -261,6 +261,21 @@ CPU --> Register --> Cache --> Main Memory --> Disk
     @R5
     M=D
 ```
+
+### Branching
+
++ @LABEL translates to @n, where n is the instruction number following the (LABEL) declaration
+    + contract:
+        + label declaratations are not translated
+        + each reference to a label is replaced with a reference to the instruction number following that label's declaration
+
+### Variables
+
++ @temp : *find some available memory register (say register n), and use it to represent the variable **temp**. So from now on, each occurance of @temp in the program will be translated to @n.
+    + contract:
+        + a reference to a symbol that has no corresponding label declaration is treated as a reference to a variable
+        + variables are allocated to the RAM from address 16 onward
+
            
 1. there is a builtin screen chip
 2. there is a builtin keyboard chip
