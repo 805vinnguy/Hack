@@ -276,6 +276,7 @@ CPU --> Register --> Cache --> Main Memory --> Disk
         + a reference to a symbol that has no corresponding label declaration is treated as a reference to a variable
         + variables are allocated to the RAM from address 16 onward
 
+
            
 1. there is a builtin screen chip
 2. there is a builtin keyboard chip
