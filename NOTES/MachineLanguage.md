@@ -276,8 +276,14 @@ CPU --> Register --> Cache --> Main Memory --> Disk
         + a reference to a symbol that has no corresponding label declaration is treated as a reference to a variable
         + variables are allocated to the RAM from address 16 onward
 
+### Pointers
 
-           
++ Variables that store memory addresses like *arr* and *i* are called pointers
++ Hack pointer logic: whenever we have to access memory using a pointer, we need an instruction like A=M
++ Typical pointer semantics: set the address register to the contents of some memory register
++ Accessing a pointer usually involves changing the address register to a value retrieved from memory
+
+
 1. there is a builtin screen chip
 2. there is a builtin keyboard chip
     + enable keyboard chip by pressing on the keyboard icon in HW simulator
