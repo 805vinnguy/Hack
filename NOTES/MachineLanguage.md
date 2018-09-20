@@ -283,10 +283,52 @@ CPU --> Register --> Cache --> Main Memory --> Disk
 + Typical pointer semantics: set the address register to the contents of some memory register
 + Accessing a pointer usually involves changing the address register to a value retrieved from memory
 
+### Input/Output
+
+**drawing a rectangle**
+- *draw a filled rectangle at the upper left corner of the screen, 16 pixels wide and RAM[0] pixels long*
+
+pseudo code:
+```
+    for(i=0; i<n; i++) {
+        draw 16 black pixels at the beginning of row i
+    }
+
+    addr = SCREEN
+    n = RAM[0]
+    i = 0
+    
+    LOOP:
+        if(i < n) {
+            goto END
+        }
+        RAM[addr] = -1  //1111111111111111
+        addr = addr + 32  //advances to the next row
+        i = i + 1
+        goto LOOP
+
+    END:
+        goto END
+```
+
+**Handling the keyboard**
+- *to check which key is currently pressed*
+    + read the contents of RAM[24576] address KBD (@KBD)
+    + application: accumulating keys until **ENTER** is pressed
+
+### Endnote: compilation
+
+High level code --> compiler --> machine language
 
 1. there is a builtin screen chip
 2. there is a builtin keyboard chip
     + enable keyboard chip by pressing on the keyboard icon in HW simulator
-3. CPU emulator, translates assembly to machine language
+3. CPU emulator, translates assembly to machine language (**use this for mult and fill**)
 4. to properly terminate a program, end programs with an infinite loop that loops back to the beginning
+```
+    @[insert line number]
+    0; JMP
+```
 5. Hack is case sensitive, R5 != r5
+6. *Simple minded people are impressed by sophisticated things and sophisticated people are impressed by simple things.*
+    + Any high level program can be translated into a Hack program that does the same thing.
