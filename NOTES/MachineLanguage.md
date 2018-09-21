@@ -114,7 +114,7 @@ CPU --> Register --> Cache --> Main Memory --> Disk
               @300 // A=300
               M=D-1 // RAM[300]=D-1
 
-              // If (D-1==0) jump to execute the instruction store in ROM[56]
+              // If (D-1==0) jump to execute the instruction stored in ROM[56]
               @56 // A=56
               D-1;JEQ // if (D-1==0) goto 56
 
