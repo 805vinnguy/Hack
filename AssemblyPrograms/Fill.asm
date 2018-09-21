@@ -13,10 +13,10 @@
 
 // Put your code here.
 
-    @255
+    @8161
     D=A
     @i
-    M=D    // i = rows of screen
+    M=D    // i = rows of screen * 32
 
     @SCREEN
     D=A
@@ -24,15 +24,15 @@
     M=D    // addr = 16384 (screen base address)
 
 (LOOP)
-    //@END
-    //M;JEQ    // goto END if M == 0
+    @i
+    M=M-1    // i = i - 1
+    D=M
+    @END
+    D;JEQ    // goto END if M == 0
 
     @addr
     A=M
     M=-1    // RAM[addr] = 1111111111111111
-
-    @i
-    M=M-1    // i = i - 1
 
     @addr
     M=M+1    // addr = addr + 1
